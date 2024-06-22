@@ -1,0 +1,8 @@
+{
+    "autoindent": false,
+    "backup": false,
+    "clipboard": "terminal",
+    "tabmovement": true,
+    "tabsize": 2,
+    "tabtospaces": true
+}

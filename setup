@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+this_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+sudo pacman -Syyu
+sudo pacman -Sy --needed curl wget rsync fastfetch zstd htop git shellcheck zoxide yazi bat fzf ncdu
+
+cp -rbv $this_dir/home/.config/* ~/.config/
+printf '%s\n' ". ~/.config/bash/prompt" | tee -a $HOME/.bashrc
+printf '%s\n' ". ~/.config/bash/aliases" | tee -a $HOME/.bashrc
+printf '%s\n' "eval \"\$(zoxide init --cmd cd bash)\"" | tee -a ~/.bashrc
+printf '%s\n' "EDITOR=micro\nVISUAL=micro" | sudo tee -a /etc/enviroment
+printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | sudo tee -a /etc/environment
+printf '%s\n' "am ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/am
+. .bashrc
