@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 this_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 sudo pacman -Syyu
-sudo pacman -Sy --needed curl wget rsync fastfetch zstd htop git shellcheck zoxide yazi bat fzf ncdu
+sudo pacman -Sy --needed curl wget rsync fastfetch zstd htop git shellcheck zoxide yazi bat fzf ncdu micro
 
 mkdir -p ~/.config
 cp -rbv $this_dir/home/.config/* ~/.config/
