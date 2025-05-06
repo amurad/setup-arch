@@ -3,6 +3,6 @@
     "backup": false,
     "clipboard": "terminal",
     "tabmovement": true,
-    "tabsize": 2,
+    "tabsize": 4,
     "tabtospaces": true
 }

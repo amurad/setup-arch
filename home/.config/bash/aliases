@@ -9,7 +9,7 @@ alias sreload='sudo systemctl reload'
 alias sstop='sudo systemctl stop'
 alias sstatus='sudo systemctl status'
 
-alias pacup='sudo pacman -Syu'
+alias pacup='sudo pacman -Syyu'
 alias pacsrch='sudo pacman -Ss'
 alias pacin='sudo pacman -S --needed'
 alias pacrm='sudo pacman -Rs'
