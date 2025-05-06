@@ -10,5 +10,5 @@ printf '%s\n' ". ~/.config/bash/aliases" | tee -a $HOME/.bashrc
 printf '%s\n' "eval \"\$(zoxide init --cmd cd bash)\"" | tee -a ~/.bashrc
 printf '%s\n' "EDITOR=micro\nVISUAL=micro" | sudo tee -a /etc/enviroment
 printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | sudo tee -a /etc/environment
-printf '%s\n' "am ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/am
+# printf '%s\n' "am ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/am
 . ~/.bashrc
