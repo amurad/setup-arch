@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 this_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 sudo pacman -Syyu
-sudo pacman -Sy --needed curl wget rsync fastfetch zstd htop git shellcheck zoxide bat fzf ncdu micro lf
+sudo pacman -Sy --needed curl wget rsync fastfetch zstd htop git shellcheck zoxide bat fzf ncdu micro lf mcfly
 
 
 printf '%s\n' "EDITOR=micro\nVISUAL=micro" | sudo tee -a /etc/enviroment
 printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | sudo tee -a /etc/environment
 # printf '%s\n' "am ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/am
 
-cp -rbv $this_dir/src/user/* $HOME/
+cp -rbv $this_dir/src/user/. $HOME/
 
 tee -a $HOME/.bashrc <<_END_
 # User specific aliases and functions
