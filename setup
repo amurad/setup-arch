@@ -10,10 +10,10 @@ printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | sudo tee -a /etc/
 
 cp -rbv $this_dir/src/user/* $HOME/
 
-tee -a $HOME/.shell <<_END_
+tee -a $HOME/.bashrc <<_END_
 # User specific aliases and functions
-if [ -d ~/.shell.d ]; then
-	for rc in ~/.shel.d/*; do
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
 		if [ -f "\$rc" ]; then
 			. "\$rc"
 		fi
