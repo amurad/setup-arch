@@ -1,12 +1,19 @@
 #!/usr/bin/bash
+
+if [ "$(whoami)" != "root" ]; then
+	SUDO=sudo
+fi
+
 this_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-sudo pacman -Syyu
-sudo pacman -Sy --needed curl wget rsync zstd htop git zoxide bat fzf ncdu micro lf mcfly terminus-font net-tools dog shellcheck fastetch arp-scan nmap
+${SUDO} pacman -Syyu
+${SUDO} pacman -Sy --needed curl wget rsync zstd htop git zoxide bat fzf ncdu micro lf mcfly terminus-font net-tools dog shellcheck fastfetch arp-scan nmap
 
 
-printf '%s\n' "EDITOR=micro\nVISUAL=micro" | sudo tee -a /etc/enviroment
-printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | sudo tee -a /etc/environment
-printf '%s\n' "${USER} ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/${USER}
+printf '%s\n' "EDITOR=micro\nVISUAL=micro" | ${SUDO} tee -a /etc/enviroment
+printf '%s\n' "MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" | ${SUDO} tee -a /etc/environment
+printf '%s\n' "${USER} ALL=(ALL:ALL) NOPASSWD: ALL" | ${SUDO} tee -a /etc/sudoers.d/${USER}
+printf '%s\n' "FONT=ter-120b" | ${SUDO} tee -a /etc/vconsole.conf
+${SUDO} ln -s $(which micro) /usr/local/bin/ed
 
 cp -rbv $this_dir/src/user/. $HOME/
 
@@ -21,4 +28,3 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 _END_
-setfont ter-124b
